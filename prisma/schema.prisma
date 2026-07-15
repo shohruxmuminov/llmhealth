@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model User {
+  id           String   @id @default(cuid())
+  firstName    String
+  lastName     String
+  phone        String
+  photoUrl     String?
+  login        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model ContentItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  images      String   // stored as a JSON string
+  category    String   // "service" | "promo" | "ad"
+  link        String?
+  keywords    String   // used for search matching
+  createdAt   DateTime @default(now())
+}
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  ip        String
+  count     Int      @default(0)
+  lastAttempt DateTime @default(now())
+}

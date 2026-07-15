@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "LoginAttempt" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "ip" TEXT NOT NULL,
+    "count" INTEGER NOT NULL DEFAULT 0,
+    "lastAttempt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

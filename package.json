@@ -1,0 +1,66 @@
+{
+  "name": "project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "eslint",
+    "postinstall": "prisma generate",
+    "electron-dev": "electron .",
+    "package": "npm run build && electron-builder build --win --publish never"
+  },
+  "main": "main.js",
+  "build": {
+    "appId": "com.arena.agent",
+    "productName": "Arena Agent Platform",
+    "files": [
+      "main.js",
+      "package.json",
+      "public/**/*",
+      ".next/**/*",
+      "prisma/**/*",
+      ".env"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "dependencies": {
+    "@prisma/client": "^7.8.0",
+    "bcryptjs": "^3.0.3",
+    "clsx": "^2.1.1",
+    "cookie": "^1.1.1",
+    "electron-serve": "^3.0.1",
+    "framer-motion": "^12.42.2",
+    "gsap": "^3.15.0",
+    "jsonwebtoken": "^9.0.3",
+    "lodash": "^4.18.1",
+    "lucide-react": "^1.24.0",
+    "next": "16.2.10",
+    "prisma": "^7.8.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie": "^0.6.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/lodash": "^4.17.24",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "electron": "^41.7.1",
+    "electron-builder": "^26.15.3",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
